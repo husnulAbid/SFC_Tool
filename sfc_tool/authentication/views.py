@@ -8,7 +8,7 @@ from .models import Sfc_tool_User
 from .serializers import Sfc_tool_User_Serializer
 
 
-class Sfc_tool_User_ListApiView(APIView):
+class Sfc_tool_User_ApiView(APIView):
 
     def get(self, request, *args, **kwargs):
 

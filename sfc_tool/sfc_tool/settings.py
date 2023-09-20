@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authentication',
-    'dashboard'
+    'dashboard',
+    'data_analysis',
+    'data_analysis.meat_consumption',
+
 ]
 
 MIDDLEWARE = [
