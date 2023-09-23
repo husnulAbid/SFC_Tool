@@ -11,6 +11,9 @@ from dotenv import load_dotenv
 
 from .serializers import Totat_Consumption_Over_Time_Serializer
 
+
+##### Need to implement more error handling
+
 class TotatConsumptionOverTime(APIView):
     
     ###
@@ -44,10 +47,15 @@ class TotatConsumptionOverTime(APIView):
             "sheep_consumption": f"{sheep_consumption}",
         }
 
-        serializer = Totat_Consumption_Over_Time_Serializer(result_)
+        serializer = Totat_Consumption_Over_Time_Serializer(data=result_)
+
+        if serializer.is_valid():
+            serializer.save()
 
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+
+    ##### Need to improve this part
 
     def get_total_consumption(self, country, start_year, end_year):
         api_endpoint = f'{os.environ.get("FLASK_APP_ENDPOINT")}/analysis/meat_consumption_time?country={country}&start={start_year}&end={end_year}'

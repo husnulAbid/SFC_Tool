@@ -2,8 +2,6 @@ from django.db import models
 
 
 class api_over_time_data(models.Model):
-    
-    id = models.CharField(max_length = 180, primary_key=True)
     country = models.TextField(max_length = 100)
     start_year = models.IntegerField()
     end_year = models.IntegerField()
