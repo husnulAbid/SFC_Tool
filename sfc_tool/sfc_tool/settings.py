@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'dashboard',
     'data_analysis',
     'data_analysis.meat_consumption',
-
 ]
 
 MIDDLEWARE = [
