@@ -12,17 +12,17 @@ from dotenv import load_dotenv
 from .serializers import Totat_Consumption_Over_Time_Serializer
 
 
-##### Need to implement more error handling
+##### Need to implement more error handling, saving to db
 
 class TotatConsumptionOverTime(APIView):
     
     ###
 
     # Sample Get Request:
-    # {base_url}/data_analysis/meat_consumption/api_1/total/?country=NZL&start_year=1994&end_year=2020
+    # {base_url}/data_analysis/meat_consumption/api_1/all_type_countrywise/?country=NZL&start_year=1994&end_year=2020
 
     ###
-
+    
     def get(self, request):
         country = request.GET.get('country')
         start_year = int(request.GET.get('start_year'))
@@ -35,7 +35,7 @@ class TotatConsumptionOverTime(APIView):
         if not end_year:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
-        beef_consumption, pig_consumption, poultry_consumption, sheep_consumption =  self.get_total_consumption(country, start_year, end_year)
+        beef_consumption, pig_consumption, poultry_consumption, sheep_consumption =  self.calculate_total_consumption(country, start_year, end_year)
 
         result_ = {
             "country": f"{country}",
@@ -57,9 +57,8 @@ class TotatConsumptionOverTime(APIView):
 
     ##### Need to improve this part
 
-    def get_total_consumption(self, country, start_year, end_year):
+    def calculate_total_consumption(self, country, start_year, end_year):
         api_endpoint = f'{os.environ.get("FLASK_APP_ENDPOINT")}/analysis/meat_consumption_time?country={country}&start={start_year}&end={end_year}'
-
         headers = {}
 
         try:
@@ -76,3 +75,59 @@ class TotatConsumptionOverTime(APIView):
             sheep_consumption = 'API Error'
 
         return beef_consumption, pig_consumption, poultry_consumption, sheep_consumption
+    
+
+
+class AvailableCountries(APIView):
+    
+    ###
+
+    # Sample Get Request:
+    # {base_url}/data_analysis/meat_consumption/api_1/available_countries/
+
+    ###
+    
+    def get(self, request):
+        api_endpoint = f'{os.environ.get("FLASK_APP_ENDPOINT")}/analysis/meat_consumption_time/countries'
+        headers = {}
+
+        try:
+            response = requests.get(url=api_endpoint, headers=headers)
+            countries = response.json()['countries']
+        except:
+            countries = 'API Error'
+        
+        result_ = {
+            "countries": f"{countries}",
+        }
+
+        return Response(result_, status=status.HTTP_200_OK)
+
+
+class StartAndEndYear(APIView):
+    
+    ###
+
+    # Sample Get Request:
+    # {base_url}/data_analysis/meat_consumption/api_1/start_and_end_year/
+
+    ###
+    
+    def get(self, request):
+        api_endpoint = f'{os.environ.get("FLASK_APP_ENDPOINT")}/analysis/meat_consumption_time/start_and_end_year'
+        headers = {}
+
+        try:
+            response = requests.get(url=api_endpoint, headers=headers)
+            end_year = response.json()['end_year']
+            start_year = response.json()['start_year']
+        except:
+            end_year = 'API Error'
+            start_year = 'API Error'
+        
+        result_ = {
+            "end_year": f"{end_year}",
+            "start_year": f"{start_year}",
+        }
+
+        return Response(result_, status=status.HTTP_200_OK)
