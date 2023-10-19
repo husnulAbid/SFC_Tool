@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./sfc_tool/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=sfc_tool_2
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1123
+    ports:
+      - "5432:5432"
+
+  django:
+    image: django-docker:0.0.1
+    build: .
+    environment:
+      - DATABASE_NAME=sfc_tool_2
+      - DATABASE_PASSWORD=1123
+      - HOST_DB=db
+      - FLASK_APP_ENDPOINT=http://172.21.0.2:5100
+    ports:
+      - "7800:7800"
+    command: >
+      bash -c "python sfc_tool/manage.py migrate
+      && python sfc_tool/manage.py runserver 0.0.0.0:7800"
+    depends_on:
+      - db

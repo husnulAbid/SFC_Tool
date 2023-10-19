@@ -8,6 +8,7 @@ __pycache__/
 
 # Project related
 sfc_tool_venv/
+sfc_tool/data/
 
 # Distribution / packaging
 .Python
