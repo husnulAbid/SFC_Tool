@@ -20,7 +20,7 @@ services:
       - DATABASE_NAME=sfc_tool_2
       - DATABASE_PASSWORD=1123
       - HOST_DB=db
-      - FLASK_APP_ENDPOINT=http://172.21.0.2:5100
+      - FLASK_APP_ENDPOINT=http://172.20.0.2:5100
     ports:
       - "7800:7800"
     command: >

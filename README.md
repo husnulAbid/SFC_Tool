@@ -101,7 +101,7 @@ SFC tool, it is possible to Analysis and get insight about few datasets more eff
 
 7. Save the IPv4 Address of Flask container from step 6
 
-8. Update FLASK_APP_ENDPOINT from the docker-compose.yml file of the Django project
+8. Update FLASK_APP_ENDPOINT (including port) from the docker-compose.yml file of the Django project
 
 9. Now Run the updated Django Image (follow ```Setup Locally using Docker``` section)
 
