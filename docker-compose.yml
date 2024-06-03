@@ -8,7 +8,7 @@ services:
       - DATABASE_NAME=sfc_tool_2
       - DATABASE_PASSWORD=qwerty1234
       - HOST_DB=sfc-tool-2.cpg4cckyiqh0.eu-north-1.rds.amazonaws.com
-      - FLASK_APP_ENDPOINT=http://172.0.0.1:5100
+      - FLASK_APP_ENDPOINT=http://127.0.0.1:5100
     ports:
       - "7800:7800"
     command: >
