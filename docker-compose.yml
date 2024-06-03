@@ -14,5 +14,3 @@ services:
     command: >
       bash -c "python sfc_tool/manage.py migrate
       && python sfc_tool/manage.py runserver 0.0.0.0:7800"
-    depends_on:
-      - db
