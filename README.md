@@ -181,11 +181,13 @@ SFC tool, it is possible to Analysis and get insight about few datasets more eff
 	* sudo systemctl restart docker
 	* sudo chmod 666 /var/run/docker.sock
 
-9. Run the docker using 'docker-compose up --build'
+9. Run the docker using 'sudo docker-compose up --build'
 
 10. The application should run 
 
 11. To check, ping the EC2 Public IPv4 DNS url at port 7800 using HTTP request. (Not https)
+
+12. If low Ram creates a problem, follow this: https://stackoverflow.com/questions/78133882/running-out-of-ram-while-doing-pip-install-on-aws-ec2
 
 
 
