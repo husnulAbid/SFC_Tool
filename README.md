@@ -167,7 +167,7 @@ SFC tool, it is possible to Analysis and get insight about few datasets more eff
 ### Download and Run docker in EC2 instance:
 
 1. Connect to EC2
-2. Generate ssh key for GitHub using: ssh-keygen -t rsa
+2. Generate ssh key for GitHub using: sudo ssh-keygen -t rsa
 3. Put the ssh public key in GitHub to access it. 
 4. Install Docker using: sudo yum install docker -y
 5. Install Git using: sudo yum install git -y
