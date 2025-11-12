@@ -19,7 +19,7 @@ class TotatConsumptionOverTime(APIView):
     ###
 
     # Sample Get Request:
-    # {base_url}/data_analysis/meat_consumption/api_1/all_type_countrywise/?country=NZL&start_year=1994&end_year=2020
+    # {base_url}/data_analysis/meat_consumption/api_1/get_all_type_countrywise/?country=NZL&start_year=1994&end_year=2020
 
     ###
     

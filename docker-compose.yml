@@ -8,7 +8,7 @@ services:
       - DATABASE_NAME=postgres
       - DATABASE_PASSWORD=abid2602
       - HOST_DB=sfc-n1-db.coh0eq0ww7zm.us-east-1.rds.amazonaws.com
-      - FLASK_APP_ENDPOINT=172.20.0.2:5100
+      - FLASK_APP_ENDPOINT=http://172.20.0.2:5100
     ports:
       - "7800:7800"
     command: >
