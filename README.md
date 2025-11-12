@@ -167,7 +167,7 @@ SFC tool, it is possible to Analysis and get insight about few datasets more eff
 ### Download and Run docker in EC2 instance:
 
 1. Connect to EC2
-2. Generate ssh key for GitHub using: sudo ssh-keygen -t rsa
+2. Generate ssh key for GitHub using: ssh-keygen -t rsa -b 4096 -C "em@ai.l"
 3. Put the ssh public key in GitHub to access it. 
 4. Install Docker using: sudo yum install docker -y
 5. Install Git using: sudo yum install git -y
@@ -181,11 +181,13 @@ SFC tool, it is possible to Analysis and get insight about few datasets more eff
 	* sudo systemctl restart docker
 	* sudo chmod 666 /var/run/docker.sock
 
-9. Run the docker using 'docker-compose up --build'
+9. Run the docker using 'sudo docker-compose up --build'
 
 10. The application should run 
 
 11. To check, ping the EC2 Public IPv4 DNS url at port 7800 using HTTP request. (Not https)
+
+12. If low Ram creates a problem, follow this: https://stackoverflow.com/questions/78133882/running-out-of-ram-while-doing-pip-install-on-aws-ec2
 
 
 
