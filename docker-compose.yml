@@ -5,7 +5,7 @@ services:
     image: django-docker:0.0.1
     build: .
     environment:
-      - DATABASE_NAME=sfc-n1-db
+      - DATABASE_NAME=postgres
       - DATABASE_PASSWORD=abid2602
       - HOST_DB=sfc-n1-db.coh0eq0ww7zm.us-east-1.rds.amazonaws.com
       - FLASK_APP_ENDPOINT=http://3.85.224.33:5100
