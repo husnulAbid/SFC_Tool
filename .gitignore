@@ -9,6 +9,7 @@ __pycache__/
 # Project related
 sfc_tool_venv/
 sfc_tool/data/
+sfc_tool/data_analysis/career_track/temp_logo/
 
 # Distribution / packaging
 .Python
