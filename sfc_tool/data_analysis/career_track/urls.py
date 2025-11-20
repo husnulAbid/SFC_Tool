@@ -4,9 +4,8 @@ from django.conf.urls.static import static
 
 from . import views
 
-app_name = "data_analysis"
+app_name = "career_track"
 
 urlpatterns = [
-    path('meat_consumption/', include("data_analysis.meat_consumption.urls"),),
-    path('career_track/', include("data_analysis.career_track.urls"),),
+    path("api_1/view/", views.CareerTrackView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
